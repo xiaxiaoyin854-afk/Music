@@ -1,79 +1,38 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>moonroom — 一起听</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="noise"></div>
-  <section class="splash" id="splash" aria-label="Opening animation">
-    <div class="splash-orbit orbit-a"></div><div class="splash-orbit orbit-b"></div>
-    <p class="eyebrow">A QUIET PLACE TO HEAR TOGETHER</p>
-    <div class="splash-word">moon<span>room</span></div>
-    <p class="splash-cn">与懂你的人，共享这一刻</p>
-    <div class="loading"><i></i></div>
-    <button class="enter" id="enterBtn">进入空间 <span>↗</span></button>
-  </section>
+  <section id="splash" class="screen splash"><div class="petal petal-one"></div><div class="petal petal-two"></div><div class="constellation"></div><div class="splash-copy"><h1>Music<br>Player</h1><i>Blooming Melodies</i></div><p class="slogan">让音乐，<br>在心里开出花。</p><div class="splash-load"><span></span></div><small>Loading...</small><button id="skip">轻触进入</button></section>
 
-  <main class="app" id="app">
-    <aside class="rail glass">
-      <a class="brand" href="#home">m<span>r</span></a>
-      <nav>
-        <button class="nav active" data-view="home"><span>◉</span><b>Listen</b></button>
-        <button class="nav" data-view="moments"><span>◎</span><b>Moments</b></button>
-        <button class="nav" data-view="messages"><span>◌</span><b>Talk</b></button>
-      </nav>
-      <button class="rail-user"><img src="https://i.pravatar.cc/100?img=47" alt="你的头像"><i></i></button>
-    </aside>
-
-    <section class="content">
-      <header>
-        <div><p class="date">SATURDAY · 10.03</p><h1>晚安，<em>Yuan.</em></h1></div>
-        <div class="header-actions"><button class="round">⌕</button><button class="round">⋯</button></div>
-      </header>
-
-      <div class="views">
-        <div class="view active" id="home">
-          <section class="hero glass">
-            <div class="hero-glow"></div>
-            <p class="hero-tag">NOW PLAYING · TOGETHER</p>
-            <h2>静静听，<br><i>慢慢靠近。</i></h2>
-            <div class="session-meta"><span class="pulse"></span> 02:17:42 · 正在同步</div>
-            <div class="cover-art"><div class="vinyl"><div class="vinyl-inner"></div></div><span>after<br>hours</span></div>
-            <button class="play-big" id="playBtn"><span>▶</span> PLAY TOGETHER</button>
-          </section>
-
-          <section class="pair-card glass">
-            <div class="section-label">THE TWO OF US <span>EDIT</span></div>
-            <div class="avatars"><div class="person"><div class="avatar-wrap"><img src="https://i.pravatar.cc/150?img=47" alt="Yuan"><button class="edit-avatar">+</button></div><button class="name" contenteditable="true">Yuan</button><small>YOU / 我</small></div><div class="connection">∞<small>connected</small></div><div class="person"><div class="avatar-wrap"><img src="https://i.pravatar.cc/150?img=32" alt="Mia"><button class="edit-avatar">+</button></div><button class="name" contenteditable="true">Mia</button><small>THEM / TA</small></div></div>
-            <p class="pair-note">" distance sounds softer with you. "</p>
-          </section>
-
-          <section class="widget-row">
-            <article class="mini-widget glass"><div class="widget-top"><span>MOOD WEATHER</span><b>⌁</b></div><strong>雾 / <i>mist</i></strong><p>适合听一些没有结局的歌</p><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
-            <article class="mini-widget glass queue"><div class="widget-top"><span>UP NEXT</span><b>03</b></div><div class="track-line"><span>01</span><div><strong>Cherry Wine</strong><p>Hozier</p></div><button>＋</button></div><div class="track-line dim"><span>02</span><div><strong>Moon Song</strong><p>Phoebe Bridgers</p></div></div></article>
-          </section>
-        </div>
-
-        <div class="view" id="moments"><section class="page-heading"><p>SHARED ARCHIVE</p><h2>我们的 <i>moments</i></h2></section><div class="moment-grid"><article class="moment glass feature"><span>SEP. 27</span><h3>这首歌播到第三遍，<br>你说像在下雪。</h3><p>Frank Ocean · Pink + White</p></article><article class="moment glass"><span>OCT. 01</span><h3>凌晨的<br>一首歌</h3><p>02:38 AM</p></article><article class="moment glass quote"><span>SEPTEMBER</span><h3>"you make the ordinary feel soft."</h3></article></div></div>
-        <div class="view" id="messages"><section class="page-heading"><p>JUST BETWEEN US</p><h2>说点 <i>什么</i></h2></section><div class="chat glass"><div class="chat-day">TODAY · 22:16</div><div class="bubble them">这首的前奏好像下雨。</div><div class="bubble me">那就别切歌，再听一会儿。</div><div class="bubble them">好。 <span>♡</span></div><div class="chat-input"><input placeholder="写一点此刻的心情..."/><button>↑</button></div></div></div>
-      </div>
+  <main id="app" class="phone-shell" aria-live="polite">
+    <div class="status"><span>9:41</span><span class="status-icons">▮▮▮　⌁　▰</span></div>
+    <section class="page active" id="home">
+      <header class="brandline"><div><h1>Music Player</h1><i>Blooming Melodies</i></div><div class="round-icon">⚙</div></header>
+      <label class="search">⌕<input placeholder="搜索歌曲、歌手、专辑..." aria-label="搜索"></label>
+      <button class="today-card" data-action="player"><div><b>今日推荐</b><i>For You</i></div><span class="record"></span><strong>▶</strong></button>
+      <div class="quick-actions"><button><em>▣</em>歌单</button><button><em>♧</em>排行榜</button><button><em>◉</em>电台</button><button><em>☆</em>收藏</button></div>
+      <div class="section-title"><h2>最近播放</h2><button>更多 〉</button></div>
+      <div class="recent-list"><button class="track" data-action="player"><span class="track-art flower-art"></span><span><b>花与枯萎</b><small>周深</small></span><i>⋮</i></button><button class="track" data-action="player"><span class="track-art moon-art"></span><span><b>Moonlight</b><small>柯柯</small></span><i>⋮</i></button><button class="track" data-action="player"><span class="track-art mist-art"></span><span><b>不眠之夜</b><small>林初霁</small></span><i>⋮</i></button></div>
     </section>
 
-    <aside class="now-playing glass">
-      <div class="tiny-label">LIVE ROOM <span><i></i> ONLINE</span></div>
-      <div class="album"><div class="album-text">SLOW<br>LIGHT</div></div>
-      <div class="song"><div><h3>Space Song</h3><p>Beach House</p></div><button>♡</button></div>
-      <div class="progress"><span>1:42</span><div><i></i></div><span>5:20</span></div>
-      <div class="controls"><button>↺</button><button>◀</button><button class="pause" id="pauseBtn">Ⅱ</button><button>▶</button><button>≋</button></div>
-      <div class="listening"><span class="pulse"></span><p><b>Mia</b> 也在听</p><div class="listen-avatars"><img src="https://i.pravatar.cc/60?img=32" alt="Mia"><img src="https://i.pravatar.cc/60?img=47" alt="Yuan"></div></div>
-    </aside>
+    <section class="page" id="discover"><header class="brandline"><div><h1>Music Player</h1><i>Blooming Melodies</i></div><div class="round-icon">♫</div></header><div class="discover-tabs"><b>推荐</b><span>关注</span><span>热门</span></div><button class="share-box">⌁　分享此刻的心情... <span>▣</span></button><article class="post"><div class="post-user"><span class="avatar a1"></span><div><b>小橘子</b><small>2小时前</small></div><i>⋮</i></div><p>今天的歌单好治愈。<br>好像所有的烦恼都被音乐带走了 ♡</p><div class="post-image headphones"></div><footer>♡ 128　　▢ 32　　⌁</footer></article><article class="post"><div class="post-user"><span class="avatar a2"></span><div><b>月亮不睡觉</b><small>3小时前</small></div><i>⋮</i></div><p>今晚和音乐真的很配～</p><div class="post-image mini-stars"></div></article></section>
+
+    <section class="page" id="profile"><header class="profile-head"><div class="avatar large a3"></div><div><h2 id="profileName">Cici <button id="openName">✎</button></h2><p>Good music, better life.</p></div></header><div class="tiny-friends"><span class="avatar a1"></span><span class="avatar a2"></span><button>＋</button></div><button class="edit-profile" data-action="pair">编辑资料　✎</button><div class="stats"><div><b>56</b><small>关注</small></div><div><b>1286</b><small>粉丝</small></div><div><b>3274</b><small>获赞</small></div></div><div class="profile-menu"><button>▣ <span>我的歌单<small>12个歌单</small></span>〉</button><button>☆ <span>我的收藏</span>〉</button><button>◷ <span>最近播放</span>〉</button><button>⇩ <span>下载管理</span>〉</button><button>⚙ <span>设置</span>〉</button></div></section>
+
+    <section class="page player-page" id="player"><button class="back" data-back>‹</button><div class="player-tabs"><b>歌曲</b><span>歌词</span></div><div class="player-art flower-art"><div class="record large-record"></div></div><div class="player-song"><h2>花与枯萎</h2><p>周深</p></div><div class="seek"><span></span><i></i><small>01:36</small><small>04:12</small></div><div class="player-controls"><button>⌘</button><button>◀</button><button id="bigPause">Ⅱ</button><button>▶</button><button>♡</button></div><div class="bottom-controls">♧　　⇩　　☷　　▱</div></section>
+
+    <section class="page" id="pair"><button class="back" data-back>‹</button><h2 class="pair-title">我们的 ♥</h2><div class="pair-people"><div><span class="avatar pair-avatar a3"></span><b>Cici</b><small>（我）</small></div><em>♥</em><div><span class="avatar pair-avatar a4"></span><b>Cedric</b><small>（他）</small></div></div><button class="change-avatar">更换头像</button><p class="pair-quote">和你在一起的每一刻<br>都是花开的声音。</p></section>
+
+    <section class="page" id="name"><button class="back" data-back>‹</button><h2 class="form-title">修改昵称</h2><label class="name-input"><input id="nameInput" maxlength="16" value="Cici"><small>4/16</small></label><button id="saveName" class="save">保存</button><div class="keyboard">q w e r t y u i o p<br>a s d f g h j k l<br><b>⇧</b>　z x c v b n m　⌫<br><span>123　◎　　　　　space　　　　return</span></div></section>
+    <nav class="tabbar"><button class="active" data-tab="home"><i>⌂</i>首页</button><button data-tab="discover"><i>♧</i>发现</button><button data-tab="profile"><i>♙</i>我的</button></nav>
   </main>
+  <div id="miniPlayer" class="mini-player"><button data-action="player"><span class="track-art flower-art"></span><span><b>花与枯萎</b><small>周深</small></span></button><button id="miniPause">Ⅱ</button></div>
   <script src="app.js"></script>
 </body>
 </html>
